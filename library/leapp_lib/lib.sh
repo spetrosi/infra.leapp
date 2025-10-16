@@ -30,10 +30,10 @@ leappInstallAnsible() {
     local pkg_cmd
     local baseurl
 
-    if rlIsRHEL ">=8.6" && [ "$ANSIBLE_VER" != "2.9" ]; then
+    if rlIsRHELLike ">=8.6" && [ "$ANSIBLE_VER" != "2.9" ]; then
         pkg_cmd="dnf"
         ansible_pkg="ansible-core"
-    elif rlIsRHEL 8; then
+    elif rlIsRHELLike 8; then
         pkg_cmd="dnf"
         ansible_pkg="ansible"
         baseurl="https://rhsm-pulp.corp.redhat.com/content/dist/layered/rhel8/$(arch)/ansible/$ae_version/os/"
@@ -50,7 +50,7 @@ leappInstallAnsible() {
         fi
     fi
 
-    if rlIsRHEL ">7"; then
+    if rlIsRHELLike ">7"; then
         if "$pkg_cmd" module info standard-test-roles > /dev/null 2>&1; then
             "$pkg_cmd" -y module disable standard-test-roles
         fi
@@ -71,8 +71,6 @@ priority=1" > /etc/yum.repos.d/lsr-test-ansible.repo
 
     rlRun "$pkg_cmd -y $action $ansible_pkg"
     rlAssertRpm "$ansible_pkg"
-    # set SR_ANSIBLE_VER from ansible
-    SR_ANSIBLE_VER="$(rolesGetAnsibleVersion)"
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
