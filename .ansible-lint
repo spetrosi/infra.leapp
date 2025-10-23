@@ -62,6 +62,7 @@ skip_list:
   - yaml[colons] # Violations reported by yamllint.
   - yaml[line-length] # Violations reported by yamllint.
   - var-naming
+  - shebang
 
 # Ansible-lint does not automatically load rules that have the 'opt-in' tag.
 # You must enable opt-in rules by listing each rule 'id' below.
