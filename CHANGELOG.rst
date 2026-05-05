@@ -4,6 +4,16 @@ Ansible Leapp Collection Release Notes
 
 .. contents:: Topics
 
+v1.7.5
+======
+
+Minor Changes
+-------------
+
+- Log role fingerprints in syslog.
+- Refactor roles to ensure they gather their required facts
+- Use the ansible-collections/partner-certification-checker collection for CI.
+
 v1.7.4
 ======
 

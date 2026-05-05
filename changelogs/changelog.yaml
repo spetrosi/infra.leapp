@@ -454,3 +454,14 @@ releases:
     - 382-rhel-7-kernel-modules-unload.yml
     - 383-analysis-pre-upgrade.yml
     release_date: '2026-03-20'
+  1.7.5:
+    changes:
+      minor_changes:
+      - Log role fingerprints in syslog.
+      - Refactor roles to ensure they gather their required facts
+      - Use the ansible-collections/partner-certification-checker collection for CI.
+    fragments:
+    - ci-use-ansible-partner-cert-checker.yml
+    - feat-role-fingerprints-in-syslog.yml
+    - refactor-ensure-roles-gather-their-facts.yml
+    release_date: '2026-05-05'
