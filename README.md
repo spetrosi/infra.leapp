@@ -106,3 +106,4 @@ This collection is **Red Hat Ansible Certified Content**, distributed on **Red H
 ## License Information
 
 This collection is published under the **MIT** license. The full text is in the `LICENSE` file.
+# Test release workflow v2
